@@ -24,3 +24,30 @@ class ContactSerializer(serializers.ModelSerializer):
         model = Contact
         # what fields to include?
         fields = ('first_name','last_name', 'phone_number', 'email')
+
+
+class Game(models.Model):
+    player1 = models.CharField(max_length=20)
+    player2 = models.CharField(max_length=20)
+    winner = models.CharField(max_length=20)
+
+class GameSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = Game
+        # what fields to include?
+        fields = ('id','player1','player2', 'winner')
+
+
+class Todos(models.Model):
+    label = models.CharField(max_length=20)
+    done = models.CharField(max_length=20)
+
+class TodosSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = Todos
+        # what fields to include?
+        fields = ('id','label','done')
